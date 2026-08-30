@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日麻点数计算器</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">&#x65E5;&#x9EBB;&#x70B9;&#x6570;&#x8BA1;&#x7B97;&#x5668;</div>
+  <nav><a href="yaku.html">&#x5F79;&#x79CD;&#x4E00;&#x89C8;</a></nav>
+</header>
+<main class="layout">
+<section class="card" id="pai-panel">
+  <h2>手牌</h2>
+  <div id="hand-row" class="pai-row"></div>
+  <p class="hint">点击下方牌加入手牌；点击手牌区某张牌可移除。</p>
+  <div class="pai-picker">
+    <h3>万子</h3><div id="picker-m" class="picker-row"></div>
+    <h3>筒子</h3><div id="picker-p" class="picker-row"></div>
+    <h3>索子</h3><div id="picker-s" class="picker-row"></div>
+    <h3>字牌</h3><div id="picker-z" class="picker-row"></div>
+  </div>
+</section>
+<section class="card" id="meld-panel">
+  <h2>副露</h2>
+  <div id="melds-row" class="meld-list"></div>
+  <button id="add-meld" type="button">添加副露</button>
+</section>
+<section class="card" id="win-panel">
+  <h2>和牌</h2>
+  <label>和了牌 <input id="win-tile" placeholder="如 8m"></label>
+  <label><input type="checkbox" id="win-tsumo">自摸</label>
+  <p>万m，索s，饼p，东1z，南2z，西3z，北4z，白5z，发6z，中7z。</p>
+</section>
+<section class="card" id="settings-panel">
+  <h2>局况</h2>
+  <label>庄家 <input type="checkbox" id="dealer"></label>
+  <label>自风 <select id="seat-wind"><option>东</option><option>南</option><option>西</option><option>北</option></select></label>
+  <label>场风 <select id="round-wind"><option>东</option><option>南</option><option>西</option><option>北</option></select></label>
+  <h3>宝牌指示牌 / 里宝指示牌</h3>
+  <div id="dora-row" class="pai-row"></div>
+  <div id="ura-row" class="pai-row"></div>
+  <button id="add-dora" type="button">添加指示牌</button>
+  <button id="add-ura" type="button">添加里宝牌</button>
+</section>
+<section class="card" id="misc-panel">
+  <h2>附加役与选项</h2>
+  <div class="checks">
+    <label><input type="checkbox" id="riichi">立直</label>
+    <label><input type="checkbox" id="ippatsu">一发</label>
+    <label><input type="checkbox" id="double-riichi">双立直</label>
+    <label><input type="checkbox" id="rinshan">岭上开花</label>
+    <label><input type="checkbox" id="chankan">枪杠</label>
+    <label><input type="checkbox" id="haitei">海底摸月</label>
+    <label><input type="checkbox" id="houtei">河底捞鱼</label>
+    <label><input type="checkbox" id="first-turn">第一巡和牌</label>
+  </div>
+  <label>赤宝牌数 <input type="number" id="red-fives" min="0" max="4" value="0"></label>
+  <button id="calc-btn" type="button">计算点数</button>
+</section>
+<section class="card" id="result-panel">
+  <h2>计算结果</h2>
+  <div id="result-body" class="result-body">
+    <p class="hint">输入手牌与和了牌后点击“计算点数”。</p>
+  </div>
+</section>
+</main>
+<script src="js/tiles.js"></script>
+<script src="js/core.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
+<div class="meld-editor">
+  <select id="meld-type"><option value="chi">吃</option><option value="pon">碰</option><option value="minkan">明杠</option><option value="ankan">暗杠</option></select>
+  <input id="meld-t1" size="3" placeholder="1m"><input id="meld-t2" size="3" placeholder="1m"><input id="meld-t3" size="3" placeholder="1m"><input id="meld-t4" size="3" placeholder="1m" title="杠的第4张">
+</div>
